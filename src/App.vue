@@ -63,6 +63,7 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
+    <share-component></share-component>
     <v-footer :fixed="fixed" app>
       <span>&copy; 2017</span>
     </v-footer>
@@ -70,22 +71,24 @@
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-      clipped: false,
-      drawer: true,
-      fixed: false,
-      items: [{
-        icon: 'bubble_chart',
-        title: 'Inspire'
-      }],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
-    }
-  },
-  name: 'App'
-}
+  import ShareComponent from './components/ShareComponent.vue'
+  export default {
+    components: { ShareComponent },
+    data () {
+      return {
+        clipped: false,
+        drawer: true,
+        fixed: false,
+        items: [{
+          icon: 'bubble_chart',
+          title: 'Inspire'
+        }],
+        miniVariant: false,
+        right: true,
+        rightDrawer: false,
+        title: 'Vuetify.js'
+      }
+    },
+    name: 'App'
+  }
 </script>

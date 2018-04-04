@@ -73,7 +73,7 @@
       share () {
         navigator.share({
           title: 'My awesome post!',
-          text: 'This post may or may not contain the answer to the universe',
+          text: 'El espacio-tiempo le dice a la materia cómo moverse; la materia le dice al espacio-tiempo cómo curvarse.',
           url: window.location.href
         }).then(() => {
           console.log('Thanks for sharing!')

@@ -64,6 +64,7 @@
       </v-list>
     </v-navigation-drawer>
     <share-component></share-component>
+    <music-component></music-component>
     <v-footer :fixed="fixed" app>
       <span>&copy; 2017</span>
     </v-footer>
@@ -72,8 +73,9 @@
 
 <script>
   import ShareComponent from './components/ShareComponent.vue'
+  import MusicComponent from './components/MusicComponent.vue'
   export default {
-    components: { ShareComponent },
+    components: { ShareComponent, MusicComponent },
     data () {
       return {
         clipped: false,

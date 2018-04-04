@@ -14,6 +14,7 @@
           value="true"
           v-for="(item, i) in items"
           :key="i"
+          :to="item.path"
         >
           <v-list-tile-action>
             <v-icon v-html="item.icon"></v-icon>
@@ -73,9 +74,9 @@
 
 <script>
   import ShareComponent from './components/ShareComponent.vue'
-  import MusicComponent from './components/MusicComponent.vue'
+//  import MusicComponent from './components/MusicComponent.vue'
   export default {
-    components: { ShareComponent, MusicComponent },
+    components: { ShareComponent },
     data () {
       return {
         clipped: false,
@@ -83,7 +84,18 @@
         fixed: false,
         items: [{
           icon: 'bubble_chart',
-          title: 'Inspire'
+          title: 'Inici',
+          path: '/'
+        },
+        {
+          icon: 'bubble_chart',
+          title: 'Musica',
+          path: 'music'
+        },
+        {
+          icon: 'bubble_chart',
+          title: 'Rellotge',
+          path: 'clock'
         }],
         miniVariant: false,
         right: true,

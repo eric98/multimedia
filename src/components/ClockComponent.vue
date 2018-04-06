@@ -1,5 +1,8 @@
 <template>
-        <canvas id="canvas" width="400" height="400" style="background-color:#333"></canvas>
+  <div>
+    <canvas id="canvas" width="400" height="400" style="background-color:#333"></canvas>
+    <output id="result"></output>
+  </div>
 </template>
 
 <style>
@@ -15,12 +18,29 @@
       }
     },
     mounted () {
+      var w
       var canvas = document.getElementById('canvas')
       var ctx = canvas.getContext('2d')
       var radius = canvas.height / 2
       ctx.translate(radius, radius)
       radius = radius * 0.90
-      drawClock()
+      // drawClock()
+
+      startWorker()
+
+      function startWorker () {
+        if (typeof (Worker) !== 'undefined') {
+          if (typeof (w) === 'undefined') {
+            w = new Worker('/static/js/worker.js')
+          }
+          w.onmessage = function (event) {
+            drawClock()
+          }
+        } else {
+          drawClock()
+          document.getElementById('result').innerHTML = 'Sorry! No Web Worker support.'
+        }
+      }
 
       function drawClock () {
         requestAnimationFrame(drawClock)

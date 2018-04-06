@@ -85,13 +85,13 @@
           title: 'Inici',
           path: '/'
         },
+        //        {
+        //          icon: 'bubble_chart',
+        //          title: 'Música',
+        //          path: 'music'
+        //        },
         {
-          icon: 'bubble_chart',
-          title: 'Musica',
-          path: 'music'
-        },
-        {
-          icon: 'bubble_chart',
+          icon: 'schedule',
           title: 'Rellotge',
           path: 'clock'
         }],

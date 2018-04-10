@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import MusicComponent from '@/components/MusicComponent'
-import ClockComponent from '@/components/ClockComponent'
+
+const HelloWorld = () => import('@/components/HelloWorld')
+const MusicComponent = () => import('@/components/MusicComponent')
+const ClockComponent = () => import('@/components/ClockComponent')
 
 Vue.use(Router)
 

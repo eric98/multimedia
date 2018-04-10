@@ -24,14 +24,12 @@
       var radius = canvas.height / 2
       ctx.translate(radius, radius)
       radius = radius * 0.90
-      // drawClock()
-
       startWorker()
 
       function startWorker () {
         if (typeof (Worker) !== 'undefined') {
           if (typeof (w) === 'undefined') {
-            w = new Worker('/static/js/worker.js')
+            w = new Worker('static/js/worker.js')
           }
           w.onmessage = function (event) {
             drawClock()

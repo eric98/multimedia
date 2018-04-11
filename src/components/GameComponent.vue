@@ -1,9 +1,9 @@
 <template>
     <div>
-        <v-btn @mousedown="moveup()" @mouseup="stopMove()" @touchstart="moveup()">UP</v-btn>
-        <v-btn @mousedown="movedown()" @mouseup="stopMove()" @touchstart="movedown()">DOWN</v-btn>
-        <v-btn @mousedown="moveleft()" @mouseup="stopMove()" @touchstart="moveleft()">LEFT</v-btn>
-        <v-btn @mousedown="moveright()" @mouseup="stopMove()" @touchstart="moveright()">RIGHT</v-btn>
+        <v-btn color="success" @mousedown="moveup()" @mouseup="stopMove()" @touchstart="moveup()">UP</v-btn>
+        <v-btn color="success" @mousedown="movedown()" @mouseup="stopMove()" @touchstart="movedown()">DOWN</v-btn>
+        <v-btn color="warning" @mousedown="moveleft()" @mouseup="stopMove()" @touchstart="moveleft()">LEFT</v-btn>
+        <v-btn color="warning" @mousedown="moveright()" @mouseup="stopMove()" @touchstart="moveright()">RIGHT</v-btn>
     </div>
 </template>
 
@@ -14,6 +14,11 @@
         display: block;
         margin: 0 auto;
         vertical-align: middle;
+    }
+    div{
+        text-align: center;
+        vertical-align: middle;
+        line-height: 90px;
     }
 </style>
 

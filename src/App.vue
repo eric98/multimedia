@@ -78,7 +78,7 @@
     data () {
       return {
         clipped: false,
-        drawer: true,
+        drawer: false,
         fixed: false,
         items: [{
           icon: 'bubble_chart',
@@ -94,6 +94,11 @@
           icon: 'schedule',
           title: 'Rellotge',
           path: 'clock'
+        },
+        {
+          icon: 'videogame_asset',
+          title: 'Joc',
+          path: 'game'
         }],
         miniVariant: false,
         right: true,

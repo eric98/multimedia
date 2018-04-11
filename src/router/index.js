@@ -4,6 +4,7 @@ import Router from 'vue-router'
 const HelloWorld = () => import('@/components/HelloWorld')
 const MusicComponent = () => import('@/components/MusicComponent')
 const ClockComponent = () => import('@/components/ClockComponent')
+const GameComponent = () => import('@/components/GameComponent')
 
 Vue.use(Router)
 
@@ -23,6 +24,11 @@ export default new Router({
       path: '/clock',
       name: 'Clock',
       component: ClockComponent
+    },
+    {
+      path: '/game',
+      name: 'Game',
+      component: GameComponent
     }
   ]
 })

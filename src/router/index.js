@@ -2,9 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import HelloWorld from '@/components/HelloWorld'
-import MusicComponent from '@/components/MusicComponent'
-import ClockComponent from '@/components/ClockComponent'
-import GameComponent from '@/components/GameComponent'
+// import MusicComponent from '@/components/MusicComponent'
+// import ClockComponent from '@/components/ClockComponent'
+// import GameComponent from '@/components/GameComponent'
 
 // const HelloWorld = () => import('@/components/HelloWorld')
 // const MusicComponent = () => import('@/components/MusicComponent')
@@ -19,21 +19,22 @@ export default new Router({
       path: '/',
       name: 'HelloWorld',
       component: HelloWorld
-    },
-    {
-      path: '/music',
-      name: 'Music',
-      component: MusicComponent
-    },
-    {
-      path: '/clock',
-      name: 'Clock',
-      component: ClockComponent
-    },
-    {
-      path: '/game',
-      name: 'Game',
-      component: GameComponent
     }
+    // },
+    // {
+    //   path: '/music',
+    //   name: 'Music',
+    //   component: MusicComponent
+    // },
+    // {
+    //   path: '/clock',
+    //   name: 'Clock',
+    //   component: ClockComponent
+    // },
+    // {
+    //   path: '/game',
+    //   name: 'Game',
+    //   component: GameComponent
+    // }
   ]
 })

@@ -72,8 +72,8 @@
 </template>
 
 <script>
-  const ShareComponent = () => import('@/components/ShareComponent')
-  // import ShareComponent from './components/ShareComponent.vue'
+  // const ShareComponent = () => import('@/components/ShareComponent')
+  import ShareComponent from './components/ShareComponent.vue'
   export default {
     components: { ShareComponent },
     data () {

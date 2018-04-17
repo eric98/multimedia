@@ -64,7 +64,7 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <share-component></share-component>
+    <!--<share-component></share-component>-->
     <v-footer :fixed="fixed" app>
       <span>&copy; 2017</span>
     </v-footer>
@@ -72,9 +72,9 @@
 </template>
 
 <script>
-  import ShareComponent from './components/ShareComponent.vue'
+  // import ShareComponent from './components/ShareComponent.vue'
   export default {
-    components: { ShareComponent },
+    // components: { ShareComponent },
     data () {
       return {
         clipped: false,
@@ -103,7 +103,7 @@
         miniVariant: false,
         right: true,
         rightDrawer: false,
-        title: 'Vuetify.js'
+        title: 'Eric Multimedia'
       }
     },
     name: 'App'

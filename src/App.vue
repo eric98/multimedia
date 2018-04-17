@@ -104,7 +104,7 @@
         miniVariant: false,
         right: true,
         rightDrawer: false,
-        title: 'Eric Multimedia'
+        title: 'Eric MUUUUUUUUUUUUUultimedia'
       }
     },
     name: 'App'

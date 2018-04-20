@@ -2,10 +2,11 @@
     <div>
     <div id="canvas"></div>
         <div>
-            <v-btn color="success" @mousedown="moveup()" @mouseup="stopMove()" @touchstart="moveup()">UP</v-btn><br>
-            <v-btn color="warning" @mousedown="moveleft()" @mouseup="stopMove()" @touchstart="moveleft()">LEFT</v-btn>
-            <v-btn color="warning" @mousedown="moveright()" @mouseup="stopMove()" @touchstart="moveright()">RIGHT</v-btn><br>
-            <v-btn color="success" @mousedown="movedown()" @mouseup="stopMove()" @touchstart="movedown()">DOWN</v-btn>
+            <!--<v-btn color="success" @mousedown="moveup()" @mouseup="stopMove()" @touchstart="moveup()">UP</v-btn><br>-->
+            <!--<v-btn color="warning" @mousedown="moveleft()" @mouseup="stopMove()" @touchstart="moveleft()">LEFT</v-btn>-->
+            <!--<v-btn color="warning" @mousedown="moveright()" @mouseup="stopMove()" @touchstart="moveright()">RIGHT</v-btn><br>-->
+            <!--<v-btn color="success" @mousedown="movedown()" @mouseup="stopMove()" @touchstart="movedown()">DOWN</v-btn>-->
+            <v-btn @mousedown="accelerate(-0.2)" @mouseup="accelerate(0.1)">ACCELERATE</v-btn>
         </div>
     </div>
 </template>
@@ -63,12 +64,15 @@
       },
       startGame () {
         this.myGameArea.start()
-        this.myGamePiece = new this.Component(30, 30, 'red', 10, 120, this.myGameArea.context)
-        this.myScore = new this.Component('30px', 'Consolas', 'black', 280, 40, this.myGameArea.context, 'text')
-        this.myObstacle = new this.Component(10, 200, 'green', 300, 120, this.myGameArea.context)
+        this.myGamePiece = new this.Component(30, 30, 'red', 10, 120, this.myGameArea.context, this.myGameArea.canvas)
+        this.myScore = new this.Component('30px', 'Consolas', 'black', 280, 40, this.myGameArea.context, this.myGameArea.canvas, 'text')
+        this.myObstacle = new this.Component(10, 200, 'green', 300, 120, this.myGameArea.context, this.myGameArea.canvas)
         setInterval(this.updateGameArea, 20)
       },
-      Component (width, height, color, x, y, ctx, type) {
+      accelerate (n) {
+        this.myGamePiece.gravity = n
+      },
+      Component (width, height, color, x, y, ctx, canvas, type) {
         this.type = type
         this.width = width
         this.height = height
@@ -76,6 +80,8 @@
         this.speedY = 0
         this.x = x
         this.y = y
+        this.gravity = 0.05
+        this.gravitySpeed = 0
         this.update = function () {
           if (this.type === 'text') {
             ctx.font = this.width + ' ' + this.height
@@ -87,8 +93,16 @@
           }
         }
         this.newPos = function () {
+          this.gravitySpeed += this.gravity
           this.x += this.speedX
-          this.y += this.speedY
+          this.y += this.speedY + this.gravitySpeed
+          this.hitBottom()
+        }
+        this.hitBottom = function () {
+          var rockbottom = canvas.height - this.height
+          if (this.y > rockbottom) {
+            this.y = rockbottom
+          }
         }
         this.crashWith = function (otherobj) {
           var myleft = this.x
@@ -127,8 +141,8 @@
           minGap = 50
           maxGap = 200
           gap = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap)
-          this.myObstacles.push(new this.Component(10, height, 'green', x, 0, this.myGameArea.context))
-          this.myObstacles.push(new this.Component(10, x - height - gap, 'green', x, height + gap, this.myGameArea.context))
+          this.myObstacles.push(new this.Component(10, height, 'green', x, 0, this.myGameArea.context, this.myGameArea.canvas))
+          this.myObstacles.push(new this.Component(10, x - height - gap, 'green', x, height + gap, this.myGameArea.context, this.myGameArea.canvas))
         }
         for (i = 0; i < this.myObstacles.length; i += 1) {
           this.myObstacles[i].x += -1

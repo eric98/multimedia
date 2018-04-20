@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-slide-y-transition mode="out-in">
       <v-layout column align-center>
-        <img src="@/assets/icon-192x192.png" alt="Vuetify.js" class="mb-5">
+        <img src="@/assets/logo.png" alt="Vuetify.js" class="mb-5">
         <blockquote>
           <h1>Eric multimedia 2n DAM</h1>
           <footer>

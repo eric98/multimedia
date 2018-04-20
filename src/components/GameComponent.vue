@@ -1,7 +1,7 @@
 <template>
     <div>
     <div id="canvas"></div>
-        <div style="text-align:center;width:480px;">
+        <div>
             <v-btn color="success" @mousedown="moveup()" @mouseup="stopMove()" @touchstart="moveup()">UP</v-btn><br>
             <v-btn color="warning" @mousedown="moveleft()" @mouseup="stopMove()" @touchstart="moveleft()">LEFT</v-btn>
             <v-btn color="warning" @mousedown="moveright()" @mouseup="stopMove()" @touchstart="moveright()">RIGHT</v-btn><br>

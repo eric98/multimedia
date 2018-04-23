@@ -6,7 +6,7 @@
             <!--<v-btn color="warning" @mousedown="moveleft()" @mouseup="stopMove()" @touchstart="moveleft()">LEFT</v-btn>-->
             <!--<v-btn color="warning" @mousedown="moveright()" @mouseup="stopMove()" @touchstart="moveright()">RIGHT</v-btn><br>-->
             <!--<v-btn color="success" @mousedown="movedown()" @mouseup="stopMove()" @touchstart="movedown()">DOWN</v-btn>-->
-            <v-btn @mousedown="accelerate(-0.2)" @mouseup="accelerate(0.1)">ACCELERATE</v-btn>
+            <v-btn @mousedown="accelerate(-0.2)" @mouseup="accelerate(0.1)" @touchstart="accelerate(-0.2)" @touchend="accelerate(-0.1)">ACCELERATE</v-btn>
         </div>
     </div>
 </template>
@@ -61,6 +61,10 @@
           return true
         }
         return false
+      },
+      restartGame () {
+        this.myGameArea.clear()
+        // this.startGame()
       },
       startGame () {
         this.myGameArea.start()

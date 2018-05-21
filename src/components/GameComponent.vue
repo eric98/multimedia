@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <v-container>
+
     <div id="canvas"></div>
         <div>
             <!--<v-btn color="success" @mousedown="moveup()" @mouseup="stopMove()" @touchstart="moveup()">UP</v-btn><br>-->
@@ -8,7 +9,7 @@
             <!--<v-btn color="success" @mousedown="movedown()" @mouseup="stopMove()" @touchstart="movedown()">DOWN</v-btn>-->
             <v-btn @mousedown="accelerate(-0.2)" @mouseup="accelerate(0.1)" @touchstart="accelerate(-0.2)" @touchend="accelerate(-0.1)">ACCELERATE</v-btn>
         </div>
-    </div>
+    </v-container>
 </template>
 
 <style>

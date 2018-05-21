@@ -1,9 +1,11 @@
 <template>
-  <div>
-    <canvas id="canvas" width="400" height="400" style="background-color:#333"></canvas>
-    <output id="result"></output>
-    <!--<v-slider v-model="fps" step="1"></v-slider>-->
-  </div>
+  <v-container>
+    <div>
+      <canvas id="canvas" width="400" height="400" style="background-color:#333"></canvas>
+      <output id="result"></output>
+      <!--<v-slider v-model="fps" step="1"></v-slider>-->
+    </div>
+  </v-container>
 </template>
 
 <style>

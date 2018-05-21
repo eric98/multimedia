@@ -1,8 +1,8 @@
 <template>
     <v-container>
-    <div id="content">
-        <canvas id="example" height=450 width=300></canvas>
-    </div>
+        <div id="content">
+            <canvas id="example" height=450 width=300></canvas>
+        </div>
     </v-container>
 </template>
 
@@ -12,6 +12,11 @@
   import $ from 'jquery'
   export default {
     name: 'name',
+    data () {
+      return {
+        mouseDrawing: false
+      }
+    },
     methods: {
       CanvasDrawr (options) {
         var canvas = document.getElementById(options.id)
@@ -27,10 +32,16 @@
         var offset = $(canvas).offset()
         var self = {
           init: function () {
-            canvas.addEventListener('touchstart', self.preDraw, false)
-            canvas.addEventListener('touchmove', self.draw, false)
+            canvas.addEventListener('touchstart', self.preDrawTouch, false)
+            canvas.addEventListener('touchmove', self.drawTouch, false)
+            canvas.addEventListener('mousedown', self.preDrawMouse, false)
+            canvas.addEventListener('mousemove', self.drawMouse, false)
+            canvas.addEventListener('mouseup', self.quitMouse, false)
           },
-          preDraw: function (event) {
+          quitMouse: function () {
+            this.mouseDrawing = false
+          },
+          preDrawTouch: function (event) {
             $.each(event.touches, function (i, touch) {
               var id = touch.identifier
               var colors = ['red', 'green', 'yellow', 'blue', 'magenta', 'orangered']
@@ -39,7 +50,14 @@
             })
             event.preventDefault()
           },
-          draw: function (event) {
+          preDrawMouse: function (event) {
+            this.mouseDrawing = true
+            var colors = ['red', 'green', 'yellow', 'blue', 'magenta', 'orangered']
+            var mycolor = colors[Math.floor(Math.random() * colors.length)]
+            lines[0] = {x: event.pageX - offset.left, y: event.pageY - offset.top, color: mycolor}
+            event.preventDefault()
+          },
+          drawTouch: function (event) {
             $.each(event.touches, function (i, touch) {
               var id = touch.identifier
               var moveX = this.pageX - offset.left - lines[id].x
@@ -49,6 +67,16 @@
               lines[id].y = ret.y
             })
             event.preventDefault()
+          },
+          drawMouse: function (event) {
+            if (this.mouseDrawing) {
+              var moveX = event.pageX - offset.left - lines[0].x
+              var moveY = event.pageY - offset.top - lines[0].y
+              var ret = self.move(0, moveX, moveY)
+              lines[0].x = ret.x
+              lines[0].y = ret.y
+              event.preventDefault()
+            }
           },
           move (i, changeX, changeY) {
             ctxt.strokeStyle = lines[i].color

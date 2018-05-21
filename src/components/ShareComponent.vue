@@ -72,13 +72,13 @@
     methods: {
       share () {
         navigator.share({
-          title: 'My awesome post!',
-          text: 'El espacio-tiempo le dice a la materia cómo moverse; la materia le dice al espacio-tiempo cómo curvarse.',
+          title: 'Eric Multimedia!',
+          text: 'Aplicació multimedia creada per Eric Garcia.',
           url: window.location.href
         }).then(() => {
-          console.log('Thanks for sharing!')
+          console.log('Gràcies per compartir!')
         }).catch(err => {
-          console.log(`Couldn't share because of`, err.message)
+          console.log(`No s'ha pogut compartir degut a `, err.message)
         })
       }
     },

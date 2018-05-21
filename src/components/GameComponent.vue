@@ -1,7 +1,6 @@
 <template>
     <v-container>
-
-    <div id="canvas"></div>
+        <div id="canvas"></div>
         <div>
             <!--<v-btn color="success" @mousedown="moveup()" @mouseup="stopMove()" @touchstart="moveup()">UP</v-btn><br>-->
             <!--<v-btn color="warning" @mousedown="moveleft()" @mouseup="stopMove()" @touchstart="moveleft()">LEFT</v-btn>-->
@@ -9,6 +8,8 @@
             <!--<v-btn color="success" @mousedown="movedown()" @mouseup="stopMove()" @touchstart="movedown()">DOWN</v-btn>-->
             <v-btn @mousedown="accelerate(-0.2)" @mouseup="accelerate(0.1)" @touchstart="accelerate(-0.2)" @touchend="accelerate(-0.1)">ACCELERATE</v-btn>
         </div>
+        <h3>Manteneix apretat el botó ACCELERATE per accelerar el jugador cap a dalt</h3>
+        <h4>ATENCIÓ! Rebotes a les parets superior i inferior</h4>
     </v-container>
 </template>
 
@@ -85,6 +86,7 @@
         this.y = y
         this.gravity = 0.05
         this.gravitySpeed = 0
+        this.bounce = 0.6
         this.update = function () {
           if (this.type === 'text') {
             ctx.font = this.width + ' ' + this.height
@@ -105,6 +107,12 @@
           var rockbottom = canvas.height - this.height
           if (this.y > rockbottom) {
             this.y = rockbottom
+            // rebota a la part de baix del canvas
+            this.gravitySpeed = -(this.gravitySpeed * this.bounce)
+          }
+          if (this.y < 1) {
+            // rebota a la part de dalt del canvas
+            this.gravitySpeed = -(this.gravitySpeed * this.bounce)
           }
         }
         this.crashWith = function (otherobj) {

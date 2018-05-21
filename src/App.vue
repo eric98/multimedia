@@ -100,6 +100,11 @@
           icon: 'videogame_asset',
           title: 'Joc',
           path: 'game'
+        },
+        {
+          icon: 'format_paint',
+          title: 'Pintar',
+          path: 'paint'
         }],
         miniVariant: false,
         right: true,

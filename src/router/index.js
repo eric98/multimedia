@@ -5,6 +5,7 @@ import HelloWorld from '@/components/HelloWorld'
 import MusicComponent from '@/components/MusicComponent'
 import ClockComponent from '@/components/ClockComponent'
 import GameComponent from '@/components/GameComponent'
+import PaintComponent from '@/components/PaintComponent'
 
 // const HelloWorld = () => import('@/components/HelloWorld')
 // const MusicComponent = () => import('@/components/MusicComponent')
@@ -34,6 +35,11 @@ export default new Router({
       path: '/game',
       name: 'Game',
       component: GameComponent
+    },
+    {
+      path: '/paint',
+      name: 'Paint',
+      component: PaintComponent
     }
   ]
 })

@@ -28,10 +28,8 @@
 
 <script>
   export default {
-    name: 'name',
     data () {
       return {
-        data: 'example',
         myObstacle: null,
         myGamePiece: null,
         myObstacles: [],

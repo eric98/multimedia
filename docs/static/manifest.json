@@ -3,7 +3,7 @@
   "background_color": "#2196f3",
   "display": "standalone",
   "Scope": "/",
-  "start_url": "/index.html/multimedia",
+  "start_url": "/multimedia",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",
